@@ -20,6 +20,12 @@ class RetroStore {
       .doc(item.id)
       .update(item.data);
   }
+
+  excluirItemRetro(item) {
+    db.collection('retro')
+      .doc(item.id)
+      .delete();
+  }
 }
 
 export default new RetroStore();

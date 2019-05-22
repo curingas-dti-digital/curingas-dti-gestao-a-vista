@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogContentText,
   DialogActions,
   TextField,
   Radio,
@@ -20,12 +19,8 @@ class ItemRetroDialog extends React.Component {
   render() {
     return (
       <Dialog open={this.props.open} onClose={this.props.handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Item da Retro</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
-          </DialogContentText>
           <TextField
             autoFocus
             margin="normal"

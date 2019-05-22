@@ -55,7 +55,7 @@ class Retro extends React.Component {
                 <img width={80} src="./images/curingas_branca.png" alt="curingas" />
               </Grid>
               <Grid item xs={10}>
-                <Typography align="center" variant="display2" color="inherit" style={{ flexGrow: 1 }}>
+                <Typography align="center" variant="display2" color="inherit">
                   Retro
                 </Typography>
               </Grid>
