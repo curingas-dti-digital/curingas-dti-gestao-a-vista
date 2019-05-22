@@ -1,15 +1,17 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {
-  Paper as div,
-  Typography,
   Table,
   TableHead,
   TableRow,
   TableCell,
   TableBody,
   Fab,
-  Card
+  Card,
+  AppBar,
+  Toolbar,
+  Grid,
+  Typography
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ItemRetro from './ItemRetro';
@@ -46,16 +48,29 @@ class Retro extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <Typography variant="h1" color="primary">
-          Retro
-        </Typography>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <Grid container alignItems="center" spacing={16} style={{ padding: 16 }}>
+              <Grid item xs={1}>
+                <img width={80} src="./images/curingas_branca.png" alt="curingas" />
+              </Grid>
+              <Grid item xs={10}>
+                <Typography align="center" variant="display2" color="inherit" style={{ flexGrow: 1 }}>
+                  Retro
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <img width={80} src="./images/curingas_branca.png" alt="curingas" />
+              </Grid>
+            </Grid>
+          </Toolbar>
+        </AppBar>
         <Card className={classes.card}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Plano de Ação</TableCell>
-                <TableCell>Data</TableCell>
-                <TableCell>Responsável</TableCell>
+                <TableCell align="left">Plano de Ação</TableCell>
+                <TableCell align="left">Responsável</TableCell>
                 <TableCell align="center">Status</TableCell>
               </TableRow>
             </TableHead>

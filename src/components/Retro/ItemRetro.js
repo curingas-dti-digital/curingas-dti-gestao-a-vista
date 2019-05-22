@@ -30,9 +30,6 @@ class ItemRetro extends React.Component {
           </Typography>
         </TableCell>
         <TableCell padding="none">
-          <Typography style={{ fontSize: 20, fontWeight: 400 }}>{item.data && item.data.Data}</Typography>
-        </TableCell>
-        <TableCell padding="none">
           <Typography style={{ fontSize: 20, fontWeight: 600 }}>
             {item.data && item.data.Responsavel}
           </Typography>
