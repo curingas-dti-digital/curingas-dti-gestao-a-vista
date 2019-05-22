@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/curingas-dti-gestao-a-vista/precache-manifest.812941083e0850e04723f2ef8eb819fb.js"
+  "/curingas-dti-gestao-a-vista/precache-manifest.c5140382da44ce7c3bc32a94dd2e1838.js"
 );
 
 self.addEventListener('message', (event) => {
