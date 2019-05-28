@@ -2,7 +2,7 @@ import React from 'react';
 import { TableRow, TableCell, Typography, IconButton, withStyles } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import RetroStore from '../../firestore/RetroStore';
+import RetroStore from '../../repos/RetroStore';
 import ItemRetroDialog from './ItemRetroDialog';
 
 const styles = theme => ({
