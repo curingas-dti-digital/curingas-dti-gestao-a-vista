@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gestao-a-vista-curingas",
+  "private_key_id": "89ba0a8bb3752e97683f06b8589f3ded2f7cb3f8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJ5tVvkhPFH02c\nt85CrECcWQEaNHzrYy9H6LIWw3u1dp8+ohga63fdBmGHhq8eU8u34AybIIsp/wym\n9UFjURJgBYuF7wVVVnBfmvV7k4CTEp9OR4Z0UHb48mpOCQ64skm9K3FFdOSgLhcz\n27VJIbgXBrzv22uxbqTUFRMMerAVToMCjFqp3FP2VfxpLr3Ba/AvQvFCohyXAao5\n4CZwo6u1oGNFaaZ4MxUGP6jFyt+Ma+zg9qzxl3gHlQWuuC68x4EXbTrF8VDa4DVX\nEkNWK4kXz0dtpkiURWs+FDVtHE3v2tBA3GNK84Q4yLRBTxsrTej25uj+1+7zR4uI\nQP0AimMNAgMBAAECggEAGbfJoDifRBDEth3DrEJ8yG2d8lSVRPaRYzuE09l6vJar\nmjLTlzo/Pmw9qCHD1L0fygBEGs5+a48NcYb0GU6OZKTQLPNRXplwHv2CH4eebR2G\nJVZ/Dfnh7bwTRnVo5qXvNqV9/DbzmGPGmNh3syUUafp1vqfYg/VwEYPNtV07aLsp\nkW0tas1lbhZ1eP5RaQPuHqrL3SRfu2CIJdof+mAHWzGzD45u8LiAJ9vdDsiLjdgM\nvtU882u40T4kmfsdtcJ1IkEpXOImyWUfvmWwPMmWztJq30SlhjbP3DZxrPpf6lTn\n36Pb4Fbm4YXn/bmH38T4RGdBmVODz7zLykkpuTa8AQKBgQDkrPQPRllzVHp3nLBx\nigTUQw2vGV8uPCqcEARzhk2nqxea2kmPa7EGxM2eyQAwEvmNf2/yxEhHMKDIDLnN\nRvdabNS8rGkTLUMGU+i/BUg++zkJ+0zYyP4oKlAPDwBUsHt33aak20R4xTPCJcd2\n9IqI7DfQhEXoN/U1O93sC1GAwQKBgQDiBuINE3KtvhLajsy6onKLGXForfoKsqjT\nVZRf+qZuK2A8DV05DYGpK12Gp9voztVIeh71xYPObvd/Aksti+MyqmcSF7UGAKkM\nEVjoNhdPvdpEQ6EMWTDAOXnhU1AzfciGAHk5VvFuD3a5U0ucFAX7DAxCShV8we1G\nv4oSuZfpTQKBgQCYhcNDbOi8w9vra9dD44rVCORXpdSWQgspjIVriGjDLJrR7kai\nInIw0ZNUFTzK090fQ6Cni8OpuAWFaPeEs5DH/07liRmMcOQDlHPo9Nz7JRUmUzcu\nYOEkaRR89sSBuDSh/nToAFfrNZ0QIaKo9PJx4RxZN+BowuoKV6PtjJ8QAQKBgQCQ\nbkGIhYLkTu8RRerA4Ak9pXZ4o6OBroR+9tKnOi2bfJA0D34gdOcDyLgs0ZqOe4yC\nkbay6hG9md8BA+AyLI9z0rumLgv41/ctxPABAn+G7xRIRsbkcyHZ02B0gZ5gKOI3\n7pmH8Gy6HZuJ9RX9mDXyI9K5kUmFvQ34BXEfYgUWiQKBgCvBRy0g3rD5OWThSiQe\nO6M+ONib/F+5KVysQo34bfabmklRuWf61s5R9SpTrclJ41v7n2GYIxzvmd7Jsy6H\nmwlgiBbeDBj7KSH8mgTHsN+gTiNgiOCglc1S6Y1BHHJQGuGRXVvoDe7TeHA9FTvz\ndVKp4GZCOGZtK7/2CbYYqhV7\n-----END PRIVATE KEY-----\n",
+  "client_email": "gest-o-a-vista-curingas@gestao-a-vista-curingas.iam.gserviceaccount.com",
+  "client_id": "112630329908498990937",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gest-o-a-vista-curingas%40gestao-a-vista-curingas.iam.gserviceaccount.com"
+}
