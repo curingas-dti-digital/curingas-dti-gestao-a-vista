@@ -5,7 +5,6 @@ import AddIcon from '@material-ui/icons/Add';
 import ItemRetro from './ItemRetro';
 import ItemRetroDialog from './ItemRetroDialog';
 import RetroStore from '../../repos/RetroStore';
-import { BasePage } from '../BasePage';
 
 const styles = theme => ({
   card: {
@@ -36,50 +35,45 @@ class Retro extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <BasePage
-        PageName={'Retro da Tribo'}
-        InnerComponent={
-          <div>
-            <Card className={classes.card}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="left">Plano de Ação</TableCell>
-                    <TableCell align="left">Responsável</TableCell>
-                    <TableCell align="center">Status</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.items.map(item => (
-                    <ItemRetro item={item} />
-                  ))}
-                </TableBody>
-              </Table>
-            </Card>
-            <Fab
-              color="primary"
-              aria-label="Add"
-              className={classes.fab}
-              onClick={() => {
-                this.setState({ criarItem: true });
-              }}
-            >
-              <AddIcon />
-            </Fab>
-            <ItemRetroDialog
-              open={this.state.criarItem}
-              item={{ id: '', data: { PlanoDeAcao: '', Responsavel: '', Status: 'Pendente' } }}
-              onSave={item => {
-                RetroStore.salvarItemRetro(item);
-                this.setState({ criarItem: false });
-              }}
-              handleClose={() => {
-                this.setState({ criarItem: false });
-              }}
-            />
-          </div>
-        }
-      />
+      <div>
+        <Card className={classes.card}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left">Plano de Ação</TableCell>
+                <TableCell align="left">Responsável</TableCell>
+                <TableCell align="center">Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.state.items.map(item => (
+                <ItemRetro item={item} />
+              ))}
+            </TableBody>
+          </Table>
+        </Card>
+        <Fab
+          color="primary"
+          aria-label="Add"
+          className={classes.fab}
+          onClick={() => {
+            this.setState({ criarItem: true });
+          }}
+        >
+          <AddIcon />
+        </Fab>
+        <ItemRetroDialog
+          open={this.state.criarItem}
+          item={{ id: '', data: { PlanoDeAcao: '', Responsavel: '', Status: 'Pendente' } }}
+          onSave={item => {
+            RetroStore.salvarItemRetro(item);
+            this.setState({ criarItem: false });
+          }}
+          handleClose={() => {
+            this.setState({ criarItem: false });
+          }}
+        />
+      </div>
     );
   }
 }

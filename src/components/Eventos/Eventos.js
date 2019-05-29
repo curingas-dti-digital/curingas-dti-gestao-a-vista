@@ -4,11 +4,10 @@ import { Fab, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Evento from './Evento';
 import EventoStore from '../../repos/EventoStore';
-import { BasePage } from '../BasePage';
 
 const styles = theme => ({
   grid: {
-    padding: theme.spacing.unit * 4
+    padding: theme.spacing.unit
   },
   fab: {
     position: 'absolute',
@@ -34,32 +33,27 @@ class Eventos extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <BasePage
-        PageName={'Eventos'}
-        InnerComponent={
-          <div>
-            <Grid container spacing={16} justify="space-between" className={classes.grid}>
-              {this.state.eventos.map(evento => {
-                return (
-                  <Grid item xs={3}>
-                    <Evento evento={evento} />
-                  </Grid>
-                );
-              })}
-            </Grid>
-            <Fab
-              color="primary"
-              aria-label="Add"
-              className={classes.fab}
-              onClick={() => {
-                this.setState({ criarEvento: true });
-              }}
-            >
-              <AddIcon />
-            </Fab>
-          </div>
-        }
-      />
+      <div>
+        <Grid container spacing={16} justify="center" className={classes.grid}>
+          {this.state.eventos.map(evento => {
+            return (
+              <Grid item xs={6}>
+                <Evento evento={evento} />
+              </Grid>
+            );
+          })}
+        </Grid>
+        <Fab
+          color="primary"
+          aria-label="Add"
+          className={classes.fab}
+          onClick={() => {
+            this.setState({ criarEvento: true });
+          }}
+        >
+          <AddIcon />
+        </Fab>
+      </div>
     );
   }
 }
