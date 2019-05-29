@@ -6,17 +6,14 @@ export const BasePage = props => {
     <div>
       <AppBar position="static" color="primary">
         <Toolbar>
-          <Grid container alignItems="center" spacing={16} style={{ padding: 0 }}>
+          <Grid container alignItems="center" spacing={16} style={{ padding: 8 }}>
             <Grid item xs={1}>
-              <img width={80} src="./images/curingas_branca.png" alt="curingas" />
+              <img width={64} src="./images/curingas_branca.png" alt="curingas" />
             </Grid>
-            <Grid item xs={10}>
-              <Typography align="center" variant="display2" color="inherit">
+            <Grid item xs>
+              <Typography align="left" variant="h3" color="inherit">
                 {props.PageName}
               </Typography>
-            </Grid>
-            <Grid item xs={1}>
-              <img width={80} src="./images/curingas_branca.png" alt="curingas" />
             </Grid>
           </Grid>
         </Toolbar>

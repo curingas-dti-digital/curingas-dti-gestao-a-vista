@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as _ from 'lodash';
 import moment from 'moment';
 
-class RitoskSheet {
+class RitosRepo {
   async listarRitos(tribo) {
     return axios
       .get(
@@ -34,4 +34,4 @@ class RitoskSheet {
   }
 }
 
-export default new RitoskSheet();
+export default new RitosRepo();

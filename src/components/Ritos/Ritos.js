@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import RitosSheet from '../../repos/RitosSheet';
+import RitosRepo from '../../repos/RitosRepo';
 import { Card, Grid, Typography } from '@material-ui/core';
 import * as _ from 'lodash';
 import { ItemRito } from './ItemRito';
@@ -12,7 +12,7 @@ const styles = theme => ({
   },
   header: {
     fontSize: 14,
-    fontWeight: 900
+    fontWeight: 300
   }
 });
 
@@ -22,7 +22,7 @@ class Ritos extends React.Component {
   };
 
   componentWillMount() {
-    RitosSheet.listarRitos('Curingas').then(squads => {
+    RitosRepo.listarRitos('Curingas').then(squads => {
       this.setState({
         squads: squads
       });

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as _ from 'lodash';
 
-class DiagnosticokSheet {
+class DiagnosticoRepo {
   async listarDiagnosticos(tribo) {
     return axios
       .get(
@@ -44,4 +44,4 @@ class DiagnosticokSheet {
   }
 }
 
-export default new DiagnosticokSheet();
+export default new DiagnosticoRepo();

@@ -13,10 +13,10 @@ class Evento extends React.Component {
     const { evento, classes } = this.props;
     return (
       <Card>
-        <CardMedia className={classes.media} image={evento.data.Imagem} />
+        <CardMedia className={classes.media} image={evento.Imagem} />
         <CardContent>
-          <Typography variant="h4">{evento.data.Responsavel}</Typography>
-          <Typography variant="h5">{evento.data.Descricao}</Typography>
+          <Typography variant="h4">{evento.Responsavel}</Typography>
+          <Typography variant="h5">{evento.Descricao}</Typography>
         </CardContent>
       </Card>
     );

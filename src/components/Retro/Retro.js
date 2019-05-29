@@ -1,10 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Table, TableHead, TableRow, TableCell, TableBody, Fab, Card } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Table, TableHead, TableRow, TableCell, TableBody, Card } from '@material-ui/core';
 import ItemRetro from './ItemRetro';
-import ItemRetroDialog from './ItemRetroDialog';
-import RetroStore from '../../repos/RetroStore';
+import RetroRepo from '../../repos/RetroRepo';
 
 const styles = theme => ({
   card: {
@@ -25,7 +23,7 @@ class Retro extends React.Component {
   };
 
   componentWillMount() {
-    RetroStore.listarItemRetro(retroItens => {
+    RetroRepo.listarRetro().then(retroItens => {
       this.setState({
         items: retroItens
       });
@@ -47,32 +45,11 @@ class Retro extends React.Component {
             </TableHead>
             <TableBody>
               {this.state.items.map(item => (
-                <ItemRetro item={item} />
+                <ItemRetro key={item.Acao} item={item} />
               ))}
             </TableBody>
           </Table>
         </Card>
-        <Fab
-          color="primary"
-          aria-label="Add"
-          className={classes.fab}
-          onClick={() => {
-            this.setState({ criarItem: true });
-          }}
-        >
-          <AddIcon />
-        </Fab>
-        <ItemRetroDialog
-          open={this.state.criarItem}
-          item={{ id: '', data: { PlanoDeAcao: '', Responsavel: '', Status: 'Pendente' } }}
-          onSave={item => {
-            RetroStore.salvarItemRetro(item);
-            this.setState({ criarItem: false });
-          }}
-          handleClose={() => {
-            this.setState({ criarItem: false });
-          }}
-        />
       </div>
     );
   }

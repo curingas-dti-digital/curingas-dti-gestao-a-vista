@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import DiagnosticoSheet from '../../repos/DiagnosticoSheet';
+import DiagnosticoSheet from '../../repos/DiagnosticoRepo';
 import { Card, Grid, Typography } from '@material-ui/core';
 import ItemDiagnostico from './ItemDiagnostico';
 import * as _ from 'lodash';
@@ -12,7 +12,7 @@ const styles = theme => ({
   },
   header: {
     fontSize: 14,
-    fontWeight: 900
+    fontWeight: 300
   }
 });
 

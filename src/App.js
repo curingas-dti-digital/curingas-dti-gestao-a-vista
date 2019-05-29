@@ -18,7 +18,7 @@ class App extends React.Component {
     const ritos = () => <BasePage PageName="Ritos" InnerComponent={<Ritos />} />;
     return (
       <MuiThemeProvider theme={Theme}>
-        <Router history={history()}>
+        <Router history={history()} basename={process.env.PUBLIC_URL}>
           <Route path="/eventos" component={eventos} />
           <Route path="/retro" component={retro} />
           <Route path="/diagnostico" component={diagnostico} />

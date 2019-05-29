@@ -17,7 +17,7 @@ class Slideshow extends React.Component {
       this.setState({
         page: this.state.page + 1
       });
-    }, 2 * 1000);
+    }, 30 * 1000);
   }
   render() {
     return (

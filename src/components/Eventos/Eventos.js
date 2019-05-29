@@ -1,9 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Fab, Grid } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Grid } from '@material-ui/core';
 import Evento from './Evento';
-import EventoStore from '../../repos/EventoStore';
+import EventoRepo from '../../repos/EventoRepo';
 
 const styles = theme => ({
   grid: {
@@ -23,7 +22,7 @@ class Eventos extends React.Component {
   };
 
   componentWillMount() {
-    EventoStore.listarEvento(eventos => {
+    EventoRepo.listarEvento().then(eventos => {
       this.setState({
         eventos: eventos
       });
@@ -43,16 +42,6 @@ class Eventos extends React.Component {
             );
           })}
         </Grid>
-        <Fab
-          color="primary"
-          aria-label="Add"
-          className={classes.fab}
-          onClick={() => {
-            this.setState({ criarEvento: true });
-          }}
-        >
-          <AddIcon />
-        </Fab>
       </div>
     );
   }

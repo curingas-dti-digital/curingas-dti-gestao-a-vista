@@ -1,19 +1,18 @@
 import React from 'react';
-import { TableRow, TableCell, Typography, IconButton, withStyles } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import RetroStore from '../../repos/RetroStore';
-import ItemRetroDialog from './ItemRetroDialog';
+import { TableRow, TableCell, Typography, withStyles } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = () => ({
   Pendente: {
     backgroundColor: '#e95d6a'
   },
-  Concluído: {
+  Concluido: {
     backgroundColor: '#57bb8a'
   },
   Andamento: {
     backgroundColor: '#6fa8dc'
+  },
+  Cancelado: {
+    backgroundColor: '#303030'
   }
 });
 
@@ -22,58 +21,38 @@ class ItemRetro extends React.Component {
     editarItem: false
   };
   render() {
-    const { item, classes } = this.props;
+    const { item } = this.props;
     return (
       <TableRow>
         <TableCell padding="none">
-          <Typography style={{ fontSize: 40, fontWeight: 600 }}>
-            {item.data && item.data.PlanoDeAcao}
-          </Typography>
+          <Typography style={{ fontSize: 40, fontWeight: 600 }}>{item.Acao}</Typography>
         </TableCell>
         <TableCell padding="none">
-          <Typography style={{ fontSize: 20, fontWeight: 600 }}>
-            {item.data && item.data.Responsavel}
+          <Typography style={{ fontSize: 24, fontWeight: 600 }}>{item.Responsavel}</Typography>
+        </TableCell>
+        <TableCell className={this.corStatus(item.Status)} align="center" padding="none">
+          <Typography align="center" style={{ fontSize: 24, fontWeight: 400, color: '#ffffff' }}>
+            {item.Status}
           </Typography>
         </TableCell>
-        <TableCell className={classes[item.data && item.data.Status]} align="center" padding="none">
-          <Typography align="center" style={{ fontSize: 20, fontWeight: 400, color: '#ffffff' }}>
-            {item.data && item.data.Status}
-          </Typography>
-        </TableCell>
-        <TableCell padding="none">
-          <IconButton
-            size="small"
-            onClick={() => {
-              this.setState({ editarItem: true });
-            }}
-          >
-            <EditIcon />
-          </IconButton>
-        </TableCell>
-        <TableCell padding="none">
-          <IconButton
-            size="small"
-            onClick={() => {
-              RetroStore.excluirItemRetro(item);
-            }}
-          >
-            <DeleteIcon />
-          </IconButton>
-        </TableCell>
-        <ItemRetroDialog
-          open={this.state.editarItem}
-          item={item}
-          onSave={item => {
-            RetroStore.atualizarItemRetro(item);
-            this.setState({ editarItem: false });
-          }}
-          handleClose={() => {
-            this.setState({ editarItem: false });
-          }}
-        />
       </TableRow>
     );
   }
+
+  corStatus = status => {
+    switch (status) {
+      case 'Pendente':
+        return this.props.classes.Pendente;
+      case 'Concluído':
+        return this.props.classes.Concluido;
+      case 'Em andamento':
+        return this.props.classes.Andamento;
+      case 'Cancelado':
+        return this.props.classes.Cancelado;
+      default:
+        return this.props.classes.Cancelado;
+    }
+  };
 }
 
 export default withStyles(styles)(ItemRetro);

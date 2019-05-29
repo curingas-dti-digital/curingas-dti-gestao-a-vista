@@ -8,7 +8,7 @@ export const ItemRito = props => {
   return [
     <Grid key="a" item container xs={3} style={{ minHeight: 72 }}>
       <Grid item container justify="center" direction="column" align="right">
-        <Typography style={{ fontSize: 20, fontWeight: 300 }}>
+        <Typography style={{ fontSize: 20, fontWeight: 700 }}>
           {squad.Squad.replace('Curingas - ', '')}
         </Typography>
       </Grid>
