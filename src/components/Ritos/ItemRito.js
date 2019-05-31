@@ -26,8 +26,14 @@ export const ItemRito = props => {
         direction="column"
         align="center"
       >
-        <Typography variant="h5" style={{ color: '#ffffff' }}>
-          {squad.CheckArquitetural && squad.CheckArquitetural.format('DD/MM/YY')}
+        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
+          {squad.CheckArquitetural.format('DD/MM/YY')}
+        </Typography>
+        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
+          Próximo:{' '}
+          {moment(squad.CheckArquitetural)
+            .add(14, 'days')
+            .format('DD/MM/YY')}
         </Typography>
       </Grid>
       <Grid
@@ -39,8 +45,14 @@ export const ItemRito = props => {
         direction="column"
         align="center"
       >
-        <Typography variant="h5" style={{ color: '#ffffff' }}>
-          {squad.CheckExecucao && squad.CheckExecucao.format('DD/MM/YY')}
+        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
+          {squad.CheckExecucao.format('DD/MM/YY')}
+        </Typography>
+        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
+          Próximo:{' '}
+          {moment(squad.CheckExecucao)
+            .add(14, 'days')
+            .format('DD/MM/YY')}
         </Typography>
       </Grid>
       <Grid
@@ -52,8 +64,14 @@ export const ItemRito = props => {
         direction="column"
         align="center"
       >
-        <Typography variant="h5" style={{ color: '#ffffff' }}>
-          {squad.Retro && squad.Retro.format('DD/MM/YY')}
+        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
+          {squad.Retro.format('DD/MM/YY')}
+        </Typography>
+        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
+          Próximo:{' '}
+          {moment(squad.Retro)
+            .add(14, 'days')
+            .format('DD/MM/YY')}
         </Typography>
       </Grid>
     </Grid>

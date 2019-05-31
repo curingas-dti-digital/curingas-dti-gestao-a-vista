@@ -2,10 +2,21 @@ import React from 'react';
 import Retro from './Retro/Retro';
 import Eventos from './Eventos/Eventos';
 import Diagnostico from './Diagnostico/Diagnostico';
-import { BasePage } from './BasePage';
 import Ritos from './Ritos/Ritos';
+import OneOnOne from './OneOnOne/OneOnOne';
+import { BasePage } from './BasePage';
 
-const pages = ['Retrospectiva', 'Próximos Eventos', 'Diagnóstico', 'Ritos'];
+const pages = [
+  'Ritos',
+  'Diagnóstico',
+  '1-1',
+  'Ritos',
+  'Diagnóstico',
+  'Retrospectiva',
+  'Ritos',
+  'Diagnóstico',
+  'Próximos Eventos'
+];
 
 class Slideshow extends React.Component {
   state = {
@@ -17,7 +28,7 @@ class Slideshow extends React.Component {
       this.setState({
         page: this.state.page + 1
       });
-    }, 30 * 1000);
+    }, 15 * 1000);
   }
   render() {
     return (
@@ -37,6 +48,8 @@ class Slideshow extends React.Component {
         return <Diagnostico />;
       case 'Ritos':
         return <Ritos />;
+      case '1-1':
+        return <OneOnOne />;
 
       default:
         return;
