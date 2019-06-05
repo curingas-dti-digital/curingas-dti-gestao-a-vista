@@ -3,8 +3,7 @@ import { withStyles, Card, CardMedia, CardContent, Typography } from '@material-
 
 const styles = () => ({
   media: {
-    height: '64vh',
-    paddingTop: 0
+    paddingTop: '100%'
   }
 });
 
@@ -15,8 +14,11 @@ class Evento extends React.Component {
       <Card>
         <CardMedia className={classes.media} image={evento.Imagem} />
         <CardContent>
-          <Typography variant="h4">{evento.Responsavel}</Typography>
-          <Typography variant="h5">{evento.Descricao}</Typography>
+          <Typography color="primary" style={{ fontSize: 24, fontWeight: 900 }}>
+            {evento.Responsavel}
+          </Typography>
+          <Typography style={{ fontSize: 18, fontWeight: 200 }}>{evento.Data.format('DD/MM')}</Typography>
+          <Typography style={{ fontSize: 16, fontWeight: 400 }}>{evento.Descricao}</Typography>
         </CardContent>
       </Card>
     );

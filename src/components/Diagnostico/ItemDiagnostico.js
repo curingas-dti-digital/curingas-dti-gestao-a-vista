@@ -4,14 +4,14 @@ import { Grid, Typography } from '@material-ui/core';
 export const ItemDiagnostico = props => {
   const diagnostico = props.diagnostico;
   return [
-    <Grid item container xs={3} style={{ minHeight: 72 }}>
+    <Grid item container xs={2} style={{ minHeight: 72 }}>
       <Grid item container justify="center" direction="column" align="right">
-        <Typography style={{ fontSize: 20, fontWeight: 700 }}>
+        <Typography style={{ fontSize: 22, fontWeight: 900 }}>
           {diagnostico.Squad.replace('Curingas - ', '')}
         </Typography>
       </Grid>
     </Grid>,
-    <Grid item container xs={9} justify="center">
+    <Grid item container xs={10} justify="center">
       <Grid item xs style={corFarol(diagnostico.GroomingEPlanning)} />
       <Grid item xs style={corFarol(diagnostico.TamanhoDasEstorias)} />
       <Grid item xs style={corFarol(diagnostico.Burndown)} />

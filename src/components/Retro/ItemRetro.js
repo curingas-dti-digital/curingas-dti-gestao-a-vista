@@ -25,13 +25,15 @@ class ItemRetro extends React.Component {
     return (
       <TableRow>
         <TableCell padding="none">
-          <Typography style={{ fontSize: 40, fontWeight: 600 }}>{item.Acao}</Typography>
+          <Typography style={{ fontSize: 32, fontWeight: 600 }}>{item.Acao}</Typography>
         </TableCell>
         <TableCell padding="none">
-          <Typography style={{ fontSize: 24, fontWeight: 600 }}>{item.Responsavel}</Typography>
+          <Typography style={{ fontSize: 24, fontWeight: 300, fontStyle: 'italic' }}>
+            {item.Responsavel}
+          </Typography>
         </TableCell>
         <TableCell className={this.corStatus(item.Status)} align="center" padding="none">
-          <Typography align="center" style={{ fontSize: 24, fontWeight: 400, color: '#ffffff' }}>
+          <Typography align="center" style={{ fontSize: 24, fontWeight: 200, color: '#ffffff' }}>
             {item.Status}
           </Typography>
         </TableCell>

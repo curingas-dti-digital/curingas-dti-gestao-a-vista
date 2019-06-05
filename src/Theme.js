@@ -13,7 +13,7 @@ export default createMuiTheme({
     }
   },
   typography: {
-    fontFamily: '"Montserrat"',
+    fontFamily: '"Poppins"',
     useNextVariants: true
   }
 });

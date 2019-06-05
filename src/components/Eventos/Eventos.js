@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Evento from './Evento';
 import EventoRepo from '../../repos/EventoRepo';
+import * as _ from 'lodash';
 
 const styles = theme => ({
   grid: {
@@ -34,13 +35,16 @@ class Eventos extends React.Component {
     return (
       <div>
         <Grid container spacing={16} justify="center" className={classes.grid}>
-          {this.state.eventos.map(evento => {
-            return (
-              <Grid item xs={6}>
-                <Evento evento={evento} />
-              </Grid>
-            );
-          })}
+          {_.chain(this.state.eventos)
+            .orderBy(evento => evento.Data)
+            .map(evento => {
+              return (
+                <Grid item xs={3}>
+                  <Evento evento={evento} />
+                </Grid>
+              );
+            })
+            .value()}
         </Grid>
       </div>
     );

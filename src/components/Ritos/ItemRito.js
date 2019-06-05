@@ -6,76 +6,46 @@ import moment from 'moment';
 export const ItemRito = props => {
   const squad = props.squad;
   return [
-    <Grid key="a" item container xs={3} style={{ minHeight: 72 }}>
+    <Grid key="a" item container xs={2} style={{ minHeight: 72 }}>
       <Grid item container justify="center" direction="column" align="right">
-        <Typography style={{ fontSize: 20, fontWeight: 700 }}>
+        <Typography style={{ fontSize: 22, fontWeight: 900 }}>
           {squad.Squad.replace('Curingas - ', '')}
         </Typography>
       </Grid>
     </Grid>,
-    <Grid key="b" item container xs={9} justify="center">
+    <Grid key="b" item container xs={10} justify="center">
       <Grid item xs={2} container justify="center" direction="column" align="center">
         {andon(squad.Andon)}
       </Grid>
-      <Grid
-        item
-        xs
-        style={corFarol(moment().diff(squad.CheckArquitetural, 'days'))}
-        container
-        justify="center"
-        direction="column"
-        align="center"
-      >
-        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
-          {squad.CheckArquitetural.format('DD/MM/YY')}
-        </Typography>
-        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
-          Próximo:{' '}
-          {moment(squad.CheckArquitetural)
-            .add(14, 'days')
-            .format('DD/MM/YY')}
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs
-        style={corFarol(moment().diff(squad.CheckExecucao, 'days'))}
-        container
-        justify="center"
-        direction="column"
-        align="center"
-      >
-        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
-          {squad.CheckExecucao.format('DD/MM/YY')}
-        </Typography>
-        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
-          Próximo:{' '}
-          {moment(squad.CheckExecucao)
-            .add(14, 'days')
-            .format('DD/MM/YY')}
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs
-        style={corFarol(moment().diff(squad.Retro, 'days'))}
-        container
-        justify="center"
-        direction="column"
-        align="center"
-      >
-        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 700 }}>
-          {squad.Retro.format('DD/MM/YY')}
-        </Typography>
-        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 300 }}>
-          Próximo:{' '}
-          {moment(squad.Retro)
-            .add(14, 'days')
-            .format('DD/MM/YY')}
-        </Typography>
-      </Grid>
+      {dateCell(squad.CheckArquitetural)}
+      {dateCell(squad.CheckExecucao)}
+      {dateCell(squad.Retro)}
     </Grid>
   ];
+};
+
+const dateCell = data => {
+  return (
+    <Grid
+      item
+      xs
+      style={corFarol(moment().diff(data, 'days'))}
+      container
+      justify="center"
+      direction="column"
+      align="center"
+    >
+      <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 900 }}>
+        {data.format('DD/MM/YY')}
+      </Typography>
+      <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 400 }}>
+        Próximo:{' '}
+        {moment(data)
+          .add(14, 'days')
+          .format('DD/MM/YY')}
+      </Typography>
+    </Grid>
+  );
 };
 
 const andon = andon => {

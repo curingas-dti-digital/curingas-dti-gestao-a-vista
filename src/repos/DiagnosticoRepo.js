@@ -5,7 +5,7 @@ class DiagnosticoRepo {
   async listarDiagnosticos(tribo) {
     return axios
       .get(
-        `https://sheets.googleapis.com/v4/spreadsheets/1ZABfkaqfHYAmcclLlGCviI4E9aTT64j_we4Hb2TRrSw/values/'Fast%20check%20Aux'!A1:R?key=AIzaSyAwwlgH1jqu9GuM1KWBKDdQSoLgqALqlPM`
+        `https://sheets.googleapis.com/v4/spreadsheets/1ZABfkaqfHYAmcclLlGCviI4E9aTT64j_we4Hb2TRrSw/values/'Fast%20check%20Aux'!A1:R?key=AIzaSyBGIJGZ64VWP-O9KQPcmr6YaVeZh_O0KLw`
       )
       .then(response => {
         const diagnosticos = _.chain(response.data.values)

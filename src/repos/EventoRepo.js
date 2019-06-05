@@ -6,7 +6,7 @@ class EventoRepo {
   listarEvento() {
     return axios
       .get(
-        `https://sheets.googleapis.com/v4/spreadsheets/1ZABfkaqfHYAmcclLlGCviI4E9aTT64j_we4Hb2TRrSw/values/'Eventos'!A2:F?key=AIzaSyAwwlgH1jqu9GuM1KWBKDdQSoLgqALqlPM`
+        `https://sheets.googleapis.com/v4/spreadsheets/1ZABfkaqfHYAmcclLlGCviI4E9aTT64j_we4Hb2TRrSw/values/'Eventos'!A2:F?key=AIzaSyBGIJGZ64VWP-O9KQPcmr6YaVeZh_O0KLw`
       )
       .then(response => {
         const eventos = _.chain(response.data.values)
@@ -23,8 +23,8 @@ class EventoRepo {
     return {
       Imagem: `https://docs.google.com/uc?id=${array[0].split('d/')[1].split('/')[0]}`,
       Responsavel: array[1],
-      Descricao: array[2],
-      Data: moment(array[3], 'DD/MM/YYYY')
+      Data: moment(array[2], 'DD/MM/YYYY'),
+      Descricao: array[3]
     };
   }
 }

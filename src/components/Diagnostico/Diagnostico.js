@@ -11,8 +11,9 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   header: {
-    fontSize: 14,
-    fontWeight: 300
+    fontSize: 16,
+    fontWeight: 200,
+    fontStyle: 'italic'
   }
 });
 
@@ -35,12 +36,12 @@ class Diagnostico extends React.Component {
       <div>
         <Card className={classes.card}>
           <Grid container spacing={16}>
-            <Grid item container xs={3} alignItems="flex-end">
+            <Grid item container xs={2} alignItems="flex-end">
               <Grid item xs padding="none" align="right">
                 <Typography className={classes.header}>Squad</Typography>
               </Grid>
             </Grid>
-            <Grid item container xs={9}>
+            <Grid item container xs={10} alignItems="flex-end">
               <Grid item xs padding="none" align="center">
                 <Typography className={classes.header}>Grooming e Planning</Typography>
               </Grid>
