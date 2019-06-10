@@ -1,9 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import DiagnosticoSheet from '../../repos/DiagnosticoRepo';
 import { Card, Grid, Typography } from '@material-ui/core';
 import ItemDiagnostico from './ItemDiagnostico';
 import * as _ from 'lodash';
+import SquadRepo from '../../repos/SquadRepo';
 
 const styles = theme => ({
   card: {
@@ -19,13 +19,13 @@ const styles = theme => ({
 
 class Diagnostico extends React.Component {
   state = {
-    diagnosticos: []
+    squads: []
   };
 
   componentWillMount() {
-    DiagnosticoSheet.listarDiagnosticos('Curingas').then(diagnosticos => {
+    SquadRepo.listarSquads('Curingas').then(squads => {
       this.setState({
-        diagnosticos: diagnosticos
+        squads: squads
       });
     });
   }
@@ -70,11 +70,11 @@ class Diagnostico extends React.Component {
                 <Typography className={classes.header}>SonarQube</Typography>
               </Grid>
               <Grid item xs padding="none" align="center">
-                <Typography className={classes.header}>Estoque de Sprints</Typography>
+                <Typography className={classes.header}>Cultura de Implantação</Typography>
               </Grid>
             </Grid>
-            {_.map(this.state.diagnosticos, diagnostico => (
-              <ItemDiagnostico diagnostico={diagnostico} />
+            {_.map(this.state.squads, squad => (
+              <ItemDiagnostico key={squad.Squad} squad={squad} />
             ))}
           </Grid>
         </Card>

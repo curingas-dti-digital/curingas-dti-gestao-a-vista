@@ -7,12 +7,9 @@ import * as _ from 'lodash';
 
 const styles = theme => ({
   grid: {
-    padding: theme.spacing.unit
-  },
-  fab: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2
+    padding: theme.spacing.unit,
+    height: `calc(100vh - 48px - ${theme.spacing.unit * 2}px)`,
+    width: '100%'
   }
 });
 
@@ -39,7 +36,7 @@ class Eventos extends React.Component {
             .orderBy(evento => evento.Data)
             .map(evento => {
               return (
-                <Grid item xs={3}>
+                <Grid item xs={4}>
                   <Evento evento={evento} />
                 </Grid>
               );

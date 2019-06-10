@@ -14,12 +14,25 @@ export const ItemRito = props => {
       </Grid>
     </Grid>,
     <Grid key="b" item container xs={10} justify="center">
-      <Grid item xs={2} container justify="center" direction="column" align="center">
+      <Grid item xs={1} container justify="center" direction="column" align="center">
         {andon(squad.Andon)}
+      </Grid>
+      <Grid
+        item
+        xs={1}
+        style={corFarolEstoque(squad.Estoque)}
+        container
+        justify="center"
+        direction="column"
+        align="center"
+      >
+        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 900 }}>
+          {squad.Estoque}
+        </Typography>
       </Grid>
       {dateCell(squad.CheckArquitetural)}
       {dateCell(squad.CheckExecucao)}
-      {dateCell(squad.Retro)}
+      {dateCell(squad.RetroSprint)}
     </Grid>
   ];
 };
@@ -29,43 +42,57 @@ const dateCell = data => {
     <Grid
       item
       xs
-      style={corFarol(moment().diff(data, 'days'))}
+      style={corFarolData(moment().diff(data, 'days'))}
       container
       justify="center"
       direction="column"
       align="center"
     >
       <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 900 }}>
-        {data.format('DD/MM/YY')}
+        {data.isValid() ? data.format('DD/MM/YY') : 'NOVO'}
       </Typography>
-      <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 400 }}>
-        Próximo:{' '}
-        {moment(data)
-          .add(14, 'days')
-          .format('DD/MM/YY')}
-      </Typography>
+      {data.isValid() && (
+        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 400 }}>
+          Próximo:{' '}
+          {moment(data)
+            .add(14, 'days')
+            .format('DD/MM/YY')}
+        </Typography>
+      )}
     </Grid>
   );
 };
 
 const andon = andon => {
   switch (andon) {
-    case '1':
+    case 1:
       return <NotificationImportantIcon style={{ fontSize: 64, color: '#f6b26b' }} />;
-    case '2':
+    case 2:
       return <NotificationImportantIcon style={{ fontSize: 64, color: '#e95d6a' }} />;
     default:
       return <div />;
   }
 };
 
-const corFarol = dias => {
+const corFarolData = dias => {
   if (dias > 14) {
     return { backgroundColor: '#e95d6a' };
   } else if (dias === 14) {
     return { backgroundColor: '#f6b26b' };
   } else {
     return { backgroundColor: '#57bb8a' };
+  }
+};
+
+const corFarolEstoque = sprints => {
+  if (sprints > 1) {
+    return { backgroundColor: '#e95d6a' };
+  } else if (sprints === 1) {
+    return { backgroundColor: '#f6b26b' };
+  } else if (sprints < 1) {
+    return { backgroundColor: '#57bb8a' };
+  } else {
+    return { backgroundColor: '#464646' };
   }
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import RitosRepo from '../../repos/RitosRepo';
 import { Card, Grid, Typography } from '@material-ui/core';
 import * as _ from 'lodash';
 import { ItemRito } from './ItemRito';
+import SquadRepo from '../../repos/SquadRepo';
 
 const styles = theme => ({
   card: {
@@ -23,7 +23,7 @@ class Ritos extends React.Component {
   };
 
   componentWillMount() {
-    RitosRepo.listarRitos('Curingas').then(squads => {
+    SquadRepo.listarSquads('Curingas').then(squads => {
       this.setState({
         squads: squads
       });
@@ -42,8 +42,11 @@ class Ritos extends React.Component {
               </Grid>
             </Grid>
             <Grid item container xs={10}>
-              <Grid item xs={2} padding="none" align="center">
+              <Grid item xs={1} padding="none" align="center">
                 <Typography className={classes.header}>Andon</Typography>
+              </Grid>
+              <Grid item xs={1} padding="none" align="center">
+                <Typography className={classes.header}>Estoque</Typography>
               </Grid>
               <Grid item xs padding="none" align="center">
                 <Typography className={classes.header}>Check Arquitetural</Typography>

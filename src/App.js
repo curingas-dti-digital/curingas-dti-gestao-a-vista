@@ -1,28 +1,40 @@
 import React from 'react';
-import { MuiThemeProvider, AppBar, Tabs, Tab } from '@material-ui/core';
+import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles } from '@material-ui/core';
 import Theme from './Theme';
 import Eventos from './components/Eventos/Eventos';
 import Diagnostico from './components/Diagnostico/Diagnostico';
 import Retro from './components/Retro/Retro';
 import Ritos from './components/Ritos/Ritos';
 import OneOnOne from './components/OneOnOne/OneOnOne';
+import PauseButton from '@material-ui/icons/Pause';
+import PlayButton from '@material-ui/icons/PlayArrow';
 
 const pages = [0, 1, 2, 3, 4, 5, 0, 1, 6, 0, 1, 2, 3, 4, 5, 0, 1, 6, 0, 1, 2, 3, 4, 5, 0, 1, 7];
 
+const styles = theme => ({
+  fab: {
+    position: 'absolute',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2
+  }
+});
+
 class App extends React.Component {
   state = {
-    index: 26,
-    page: 7,
+    index: 0,
+    page: 0,
     play: true
   };
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      const newIndex = (this.state.index + 1) % pages.length;
-      this.setState({
-        index: newIndex,
-        page: pages[newIndex]
-      });
+      if (this.state.play) {
+        const newIndex = (this.state.index + 1) % pages.length;
+        this.setState({
+          index: newIndex,
+          page: pages[newIndex]
+        });
+      }
     }, 15 * 1000);
   }
 
@@ -36,26 +48,27 @@ class App extends React.Component {
 
   render() {
     const { page } = this.state;
+    const { classes } = this.props;
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
-            <Tab label="Ritos" />
-            <Tab label="Diagnóstico" />
-            <Tab label="1-1 Cross" />
-            <Tab label="1-1 Prodap" />
-            <Tab label="1-1 BH" />
-            <Tab label="1-1 Serasa" />
-            <Tab label="Retro da Tribo" />
-            <Tab label="Próximos Eventos" />
+            <Tab wrapped label="Ritos" />
+            <Tab wrapped label="Diagnóstico" />
+            <Tab wrapped label="1-1 Cross" />
+            <Tab wrapped label="1-1 Prodap" />
+            <Tab wrapped label="1-1 BH" />
+            <Tab wrapped label="1-1 Serasa" />
+            <Tab wrapped label="Retro da Tribo" />
+            <Tab wrapped label="Próximos Eventos" />
           </Tabs>
-          {/* <IconButton onClick={this.handleClick}>
+          <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
             {this.state.play ? (
               <PauseButton style={{ color: '#ffffff' }} />
             ) : (
               <PlayButton style={{ color: '#ffffff' }} />
             )}
-          </IconButton> */}
+          </Fab>
         </AppBar>
         {page === 0 && <Ritos />}
         {page === 1 && <Diagnostico />}
@@ -70,4 +83,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
