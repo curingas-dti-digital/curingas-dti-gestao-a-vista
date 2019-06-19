@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, withStyles, Grid, Card, CardContent } from '@material-ui/core';
+import { Typography, withStyles, Grid, Card, CardContent, CardHeader, Avatar } from '@material-ui/core';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import moment from 'moment';
 
@@ -24,31 +24,41 @@ class ItemOneOnOne extends React.Component {
     return (
       <Grid item xs={3}>
         <Card className={this.corStatus(oneOnOne.Data)}>
-          <CardContent>
-            <Grid container spacing={8}>
-              <Grid item xs={8}>
-                <Typography align="justify" style={{ fontSize: 28, fontWeight: 900, color: '#ffffff' }}>
-                  {oneOnOne.Crafter}
+          <CardHeader
+            style={{ paddingBottom: 0 }}
+            avatar={
+              <Avatar src={oneOnOne.Imagem} style={{ width: 80, height: 80, backgroundColor: '#1c68b1' }}>
+                <Typography align="justify" style={{ fontSize: 52, fontWeight: 300, color: '#ffffff' }}>
+                  {oneOnOne.Crafter[0]}
                 </Typography>
-              </Grid>
-              <Grid item xs={4} align="right">
-                {oneOnOne.OKR && <AssignmentIcon style={{ color: '#ffffff' }} />}
-              </Grid>
-              <Grid item xs={6}>
+              </Avatar>
+            }
+            title={
+              <Typography align="justify" style={{ fontSize: 28, fontWeight: 900, color: '#ffffff' }}>
+                {oneOnOne.Crafter}
+              </Typography>
+            }
+          />
+          <CardContent>
+            <Grid container>
+              <Grid item xs={5}>
                 <Typography style={{ fontSize: 14, fontWeight: 200, fontStyle: 'italic', color: '#ffffff' }}>
                   Data:
                 </Typography>
-                <Typography style={{ fontSize: 20, fontWeight: 700, color: '#ffffff' }}>
-                  {oneOnOne.Data.format('DD/MM/YY')}
+                <Typography style={{ fontSize: 22, fontWeight: 700, color: '#ffffff' }}>
+                  {oneOnOne.Data.format('DD/MM')}
                 </Typography>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={5}>
                 <Typography style={{ fontSize: 14, fontWeight: 200, fontStyle: 'italic', color: '#ffffff' }}>
                   Líder:
                 </Typography>
-                <Typography style={{ fontSize: 20, fontWeight: 400, color: '#ffffff' }}>
+                <Typography style={{ fontSize: 22, fontWeight: 400, color: '#ffffff' }}>
                   {oneOnOne.Lider}
                 </Typography>
+              </Grid>
+              <Grid item xs={2} align="right">
+                {oneOnOne.OKR && <AssignmentIcon style={{ color: '#ffffff' }} />}
               </Grid>
             </Grid>
           </CardContent>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import CuringasRepo from '../../repos/CuringasRepo';
-import ItemOneOnOne from './ItemOneOnOne';
 import * as _ from 'lodash';
+import ItemRanking from './ItemRanking';
+import CuringasRepo from '../../repos/CuringasRepo';
 
 const styles = theme => ({
   card: {
@@ -12,16 +12,15 @@ const styles = theme => ({
   }
 });
 
-class OneOnOne extends React.Component {
+class Ranking extends React.Component {
   state = {
-    criarItem: false,
-    listaOneOnOne: []
+    ranking: []
   };
 
   componentWillMount() {
-    CuringasRepo.listarCuringas(this.props.cliente).then(listaOneOnOne => {
+    CuringasRepo.listarCuringas().then(ranking => {
       this.setState({
-        listaOneOnOne: listaOneOnOne
+        ranking: ranking
       });
     });
   }
@@ -31,9 +30,10 @@ class OneOnOne extends React.Component {
     return (
       <div className={classes.card}>
         <Grid container spacing={8} direction="row">
-          {_.chain(this.state.listaOneOnOne)
-            .orderBy(oneOnOne => oneOnOne.Data)
-            .map(oneOnOne => <ItemOneOnOne key={oneOnOne.Crafter} oneOnOne={oneOnOne} />)
+          {_.chain(this.state.ranking)
+            .filter(curinga => curinga.Pontos > 0)
+            .orderBy(curinga => curinga.Pontos, 'desc')
+            .map(curinga => <ItemRanking key={curinga.Crafter} curinga={curinga} />)
             .value()}
         </Grid>
       </div>
@@ -41,4 +41,4 @@ class OneOnOne extends React.Component {
   }
 }
 
-export default withStyles(styles)(OneOnOne);
+export default withStyles(styles)(Ranking);
