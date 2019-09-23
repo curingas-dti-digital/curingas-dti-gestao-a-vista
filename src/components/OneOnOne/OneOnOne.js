@@ -8,20 +8,20 @@ import * as _ from 'lodash';
 const styles = theme => ({
   card: {
     padding: theme.spacing.unit,
-    height: `calc(100vh - 48px - ${theme.spacing.unit * 2})`
+    height: `calc(100vh - 48px - ${theme.spacing.unit * 2}px)`
   }
 });
 
 class OneOnOne extends React.Component {
   state = {
     criarItem: false,
-    listaOneOnOne: []
+    crafters: []
   };
 
   componentWillMount() {
-    CuringasRepo.listarCuringas(this.props.cliente).then(listaOneOnOne => {
+    CuringasRepo.listarCuringas().then(crafters => {
       this.setState({
-        listaOneOnOne: listaOneOnOne
+        crafters: crafters
       });
     });
   }
@@ -31,9 +31,9 @@ class OneOnOne extends React.Component {
     return (
       <div className={classes.card}>
         <Grid container spacing={8} direction="row">
-          {_.chain(this.state.listaOneOnOne)
-            .orderBy(oneOnOne => oneOnOne.Data)
-            .map(oneOnOne => <ItemOneOnOne key={oneOnOne.Crafter} oneOnOne={oneOnOne} />)
+          {_.chain(this.state.crafters)
+            .orderBy(crafter => (crafter.meeting ? crafter.meeting.lastMeeting : ''))
+            .map(crafter => <ItemOneOnOne key={crafter.name} crafter={crafter} />)
             .value()}
         </Grid>
       </div>

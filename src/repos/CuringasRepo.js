@@ -3,18 +3,11 @@ import * as _ from 'lodash';
 import moment from 'moment';
 
 class CuringasRepo {
-  listarCuringas(cliente) {
+  listarCuringas() {
     return axios
-      .get(
-        `https://sheets.googleapis.com/v4/spreadsheets/1ZABfkaqfHYAmcclLlGCviI4E9aTT64j_we4Hb2TRrSw/values/'Curingas'!A2:G?key=AIzaSyBGIJGZ64VWP-O9KQPcmr6YaVeZh_O0KLw`
-      )
+      .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe/Curingas`)
       .then(response => {
-        return _.chain(response.data.values)
-          .map(this.parseCuringa)
-          .filter(curinga => {
-            return !cliente || (cliente && curinga.Cliente === cliente);
-          })
-          .value();
+        return response.data.crafters;
       })
       .catch(error => {
         console.log(error);

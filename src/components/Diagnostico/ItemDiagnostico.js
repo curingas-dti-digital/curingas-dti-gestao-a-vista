@@ -4,9 +4,9 @@ import { Grid, Typography } from '@material-ui/core';
 export const ItemDiagnostico = props => {
   const squad = props.squad;
   return [
-    <Grid item container xs={2} style={{ minHeight: 72 }}>
-      <Grid item container justify="center" direction="column" align="right">
-        <Typography style={{ fontSize: 22, fontWeight: 900 }}>
+    <Grid item container xs={2} style={{ minHeight: 160 }}>
+      <Grid item container justify="center" direction="column" align="left">
+        <Typography style={{ fontSize: 28, fontWeight: 900 }}>
           {squad.Squad.replace('Curingas - ', '')}
         </Typography>
       </Grid>
@@ -35,7 +35,7 @@ const corFarol = farol => {
     case 3:
       return { backgroundColor: '#57bb8a' };
     default:
-      return { backgroundColor: '#ffffff' };
+      return { backgroundColor: '#a5a5a5' };
   }
 };
 

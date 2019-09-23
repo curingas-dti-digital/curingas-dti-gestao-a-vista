@@ -6,9 +6,9 @@ import moment from 'moment';
 export const ItemRito = props => {
   const squad = props.squad;
   return [
-    <Grid key="a" item container xs={2} style={{ minHeight: 72 }}>
-      <Grid item container justify="center" direction="column" align="right">
-        <Typography style={{ fontSize: 22, fontWeight: 900 }}>
+    <Grid key="a" item container xs={2} style={{ minHeight: 160 }}>
+      <Grid item container justify="center" direction="column">
+        <Typography style={{ fontSize: 28, fontWeight: 900 }}>
           {squad.Squad.replace('Curingas - ', '')}
         </Typography>
       </Grid>
@@ -26,7 +26,7 @@ export const ItemRito = props => {
         direction="column"
         align="center"
       >
-        <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 900 }}>
+        <Typography variant="h2" style={{ color: '#ffffff', fontWeight: 900 }}>
           {squad.Estoque}
         </Typography>
       </Grid>
@@ -48,11 +48,11 @@ const dateCell = data => {
       direction="column"
       align="center"
     >
-      <Typography variant="h4" style={{ color: '#ffffff', fontWeight: 900 }}>
+      <Typography variant="h2" style={{ color: '#ffffff', fontWeight: 900 }}>
         {data.isValid() ? data.format('DD/MM/YY') : 'NOVO'}
       </Typography>
       {data.isValid() && (
-        <Typography variant="subtitle2" style={{ color: '#ffffff', fontWeight: 400 }}>
+        <Typography variant="h6" style={{ color: '#ffffff', fontWeight: 400 }}>
           Próximo:{' '}
           {moment(data)
             .add(14, 'days')

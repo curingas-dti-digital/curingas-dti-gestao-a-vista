@@ -1,16 +1,12 @@
 import React from 'react';
 import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles } from '@material-ui/core';
 import Theme from './Theme';
-import Eventos from './components/Eventos/Eventos';
-import Diagnostico from './components/Diagnostico/Diagnostico';
-import Retro from './components/Retro/Retro';
-import Ritos from './components/Ritos/Ritos';
 import OneOnOne from './components/OneOnOne/OneOnOne';
 import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
-import Ranking from './components/Gamification/Ranking';
+import Iframe from './components/Iframe';
 
-const pages = [0, 1, 2, 3, 4, 5, 0, 1, 6, 0, 1, 2, 3, 4, 5, 0, 1, 7, 0, 1, 2, 3, 4, 5, 0, 1, 8];
+const pages = [0, 1, 2];
 
 const styles = theme => ({
   fab: {
@@ -23,8 +19,8 @@ const styles = theme => ({
 class App extends React.Component {
   state = {
     index: 0,
-    page: 3,
-    play: false
+    page: 0,
+    play: true
   };
 
   componentDidMount() {
@@ -36,7 +32,7 @@ class App extends React.Component {
           page: pages[newIndex]
         });
       }
-    }, 15 * 1000);
+    }, 30 * 1000);
   }
 
   handleChange = (e, value) => {
@@ -56,13 +52,7 @@ class App extends React.Component {
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
             <Tab wrapped label="Ritos" />
             <Tab wrapped label="Diagnóstico" />
-            <Tab wrapped label="1-1 Cross" />
-            <Tab wrapped label="1-1 Prodap" />
-            <Tab wrapped label="1-1 BH" />
-            <Tab wrapped label="1-1 Serasa" />
-            <Tab wrapped label="Retro da Tribo" />
-            <Tab wrapped label="Próximos Eventos" />
-            <Tab wrapped label="Gamification" />
+            <Tab wrapped label="1-1" />
           </Tabs>
           <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
             {this.state.play ? (
@@ -72,15 +62,21 @@ class App extends React.Component {
             )}
           </Fab>
         </AppBar>
-        {page === 0 && <Ritos />}
-        {page === 1 && <Diagnostico />}
-        {page === 2 && <OneOnOne cliente="Cross" />}
-        {page === 3 && <OneOnOne cliente="Prodap" />}
-        {page === 4 && <OneOnOne cliente="BH" />}
-        {page === 5 && <OneOnOne cliente="Serasa" />}
-        {page === 6 && <Retro />}
-        {page === 7 && <Eventos />}
-        {page === 8 && <Ranking />}
+        {page === 0 && (
+          <Iframe
+            page={
+              'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=2092766634&single=true'
+            }
+          />
+        )}
+        {page === 1 && (
+          <Iframe
+            page={
+              'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=890090851&single=true'
+            }
+          />
+        )}
+        {page === 2 && <OneOnOne />}
       </MuiThemeProvider>
     );
   }
